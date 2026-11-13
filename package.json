@@ -1,0 +1,13 @@
+{
+  "name": "mekanik-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de gestão automotiva Mekanik",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}

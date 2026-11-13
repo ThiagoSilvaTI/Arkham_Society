@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mekanik | Gestão automotiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell" id="appShell">
+    <aside class="sidebar"><div class="brand"><img class="brand-logo" src="https://www.image2url.com/r2/default/images/1794593515520-425e7846-039a-48cd-8969-56716e043d1c.jpeg" alt="Mekanik - Sistema de gestão automotiva"></div><div class="nav-label">Operação</div><button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button><button class="nav-item" data-view="clients"><span class="nav-icon">◉</span><span>Clientes</span></button><button class="nav-item" data-view="vehicles"><span class="nav-icon">▣</span><span>Veículos</span></button><button class="nav-item" data-view="agenda"><span class="nav-icon">□</span><span>Agenda</span></button><button class="nav-item" data-view="os"><span class="nav-icon">✣</span><span>Ordens de serviço</span></button><button class="nav-item" data-view="budgets"><span class="nav-icon">▤</span><span>Orçamentos</span></button><button class="nav-item" data-view="customerRequests"><span class="nav-icon">▣</span><span>Pedidos de clientes</span></button><div class="nav-label">Gestão</div><button class="nav-item" data-view="stock"><span class="nav-icon">▥</span><span>Estoque</span></button><button class="nav-item" data-view="finance"><span class="nav-icon">$</span><span>Financeiro</span></button><button class="nav-item" data-view="reports"><span class="nav-icon">◒</span><span>Relatórios</span></button><div class="side-foot">Unidade principal<div class="user"><span class="avatar" id="adminAvatar">MA</span><span id="adminIdentity">Marina Alves<br><small>Administradora</small></span></div><button class="ghost logout-button" type="button">Sair da conta</button></div></aside>
+    <div class="content"><header class="topbar"><div class="crumb">Mekanik / <b id="crumb">Dashboard</b></div><div class="top-actions"><div class="search-wrap"><span>⌕</span><input class="search" id="globalSearch" placeholder="Buscar cliente, veículo, peça ou função..." aria-label="Busca global"></div><button class="circle-btn" title="Notificações">♧</button><span class="avatar">MA</span></div></header>
+    <main>
+        <section class="view active" id="dashboard"><div class="page-head"><div><p class="eyebrow">QUINTA-FEIRA, 03 SET 2026</p><h1>Bom dia, Marina.</h1><p class="sub">Aqui está o pulso da sua oficina hoje.</p></div><button class="primary" data-new="os">+ Nova ordem de serviço</button></div><div class="kpis"><div class="kpi"><div class="kpi-top">Faturamento do mês <span class="kpi-icon">↗</span></div><strong>R$ 48.290</strong><span class="trend">↑ 12,8% vs. mês anterior</span></div><div class="kpi"><div class="kpi-top">OS em andamento <span class="kpi-icon">✣</span></div><strong>18</strong><span class="trend">6 aguardando aprovação</span></div><div class="kpi"><div class="kpi-top">Carros na oficina <span class="kpi-icon">▣</span></div><strong>12</strong><span class="trend">4 entregas previstas hoje</span></div><div class="kpi"><div class="kpi-top">A receber <span class="kpi-icon">$</span></div><strong>R$ 12.840</strong><span class="trend">8 títulos em aberto</span></div><div class="kpi"><div class="kpi-top">Estoque crítico <span class="kpi-icon">!</span></div><strong>05 itens</strong><span class="trend" style="color:var(--red)">Requer atenção</span></div></div><div class="layout"><div class="panel"><div class="panel-head"><div><h2>Faturamento</h2><p>Receita bruta nos últimos 6 meses</p></div><button class="link">Ver relatório →</button></div><div class="chart"><div class="bar" style="height:48%"><em>R$ 31k</em><span>abr</span></div><div class="bar" style="height:62%"><em>R$ 36k</em><span>mai</span></div><div class="bar" style="height:54%"><em>R$ 34k</em><span>jun</span></div><div class="bar" style="height:74%"><em>R$ 42k</em><span>jul</span></div><div class="bar" style="height:68%"><em>R$ 39k</em><span>ago</span></div><div class="bar" style="height:91%;background:linear-gradient(var(--cyan),#278d82)"><em>R$ 48k</em><span>set</span></div></div></div><div class="panel"><div class="panel-head"><div><h2>Agenda de hoje</h2><p>Próximos atendimentos</p></div><button class="link" data-view="agenda">Ver agenda →</button></div><div class="agenda-row"><span class="time">08:30</span><div class="event"><b>Revisão de 60.000 km</b><small>João Santos · Toyota Corolla</small></div><span class="tag">Confirmado</span></div><div class="agenda-row"><span class="time">10:00</span><div class="event"><b>Troca de pastilhas</b><small>Mariana Oliveira · Honda Civic</small></div><span class="tag">Chegou</span></div><div class="agenda-row"><span class="time">14:30</span><div class="event"><b>Diagnóstico eletrônico</b><small>Carlos Almeida · VW T-Cross</small></div><span class="tag">Agendado</span></div><div class="agenda-row"><span class="time">16:00</span><div class="event"><b>Alinhamento e balanceamento</b><small>Paulo Mendes · Chevrolet Onix</small></div><span class="tag">Agendado</span></div></div></div><div class="panel alerts"><div class="panel-head"><div><h2>Central de atenção</h2><p>Itens que pedem uma decisão</p></div><span class="status orange">5 alertas</span></div><div class="alert-row"><i class="alert-dot red"></i><span><b>Estoque baixo:</b> Pastilha de freio dianteira</span><small>2 un.</small></div><div class="alert-row"><i class="alert-dot"></i><span><b>Aprovação pendente:</b> Orçamento #1048</span><small>há 2h</small></div><div class="alert-row"><i class="alert-dot red"></i><span><b>Conta vence hoje:</b> Auto Peças Brasil</span><small>R$ 2.480</small></div></div></section>
+        <section class="view" id="clients"><div class="page-head"><div><p class="eyebrow">RELACIONAMENTO</p><h1>Clientes</h1><p class="sub">Pessoas, veículos e histórico em um só lugar.</p></div><button class="primary" data-new="client">+ Novo cliente</button></div><div class="panel"><div class="module-toolbar"><input class="filter" data-filter="clients" placeholder="Buscar por nome, telefone ou CPF..." style="flex:1"><select class="filter"><option>Todos os clientes</option><option>Ativos</option></select></div><table class="module-table"><thead><tr><th>Cliente</th><th>Contato</th><th>Veículos</th><th>Último atendimento</th><th>Total gasto</th><th>Status</th></tr></thead><tbody id="clientRows"></tbody></table></div></section>
+        <section class="view" id="vehicles"><div class="page-head"><div><p class="eyebrow">FROTA DE CLIENTES</p><h1>Veículos</h1><p class="sub">Encontre qualquer histórico pela placa.</p></div><button class="primary" data-new="vehicle">+ Novo veículo</button></div><div class="panel"><div class="module-toolbar"><input class="filter" data-filter="vehicles" placeholder="Buscar placa, modelo ou cliente..." style="flex:1"></div><table class="module-table"><thead><tr><th>Veículo</th><th>Placa</th><th>Proprietário</th><th>Quilometragem</th><th>Último serviço</th><th>Status</th></tr></thead><tbody id="vehicleRows"></tbody></table></div></section>
+        <section class="view" id="os"><div class="page-head"><div><p class="eyebrow">PRODUÇÃO</p><h1>Ordens de serviço</h1><p class="sub">Acompanhe o veículo do check-in à entrega.</p></div><button class="primary" data-new="os">+ Nova OS</button></div><div class="kanban" id="kanban"></div></section>
+        <section class="view" id="stock"><div class="page-head"><div><p class="eyebrow">SUPRIMENTOS</p><h1>Estoque</h1><p class="sub">Movimentações e pontos de reposição.</p></div><button class="primary" data-new="part">+ Nova peça</button></div><div class="panel"><div class="module-toolbar"><input class="filter" data-filter="parts" placeholder="Buscar peça, SKU ou categoria..." style="flex:1"><button class="ghost" id="stockIn">Registrar entrada</button></div><table class="module-table"><thead><tr><th>Peça</th><th>SKU</th><th>Categoria</th><th>Atual</th><th>Mínimo</th><th>Preço venda</th><th>Situação</th></tr></thead><tbody id="stockRows"></tbody></table></div></section>
+        <section class="view" id="agenda"><div class="page-head"><div><p class="eyebrow">PLANEJAMENTO</p><h1>Agenda</h1><p class="sub">Quinta-feira, 03 de setembro · 4 atendimentos.</p></div><button class="primary" data-new="appointment">+ Novo agendamento</button></div><div class="panel"><div class="module-toolbar"><button class="ghost">‹</button><button class="ghost">Hoje</button><button class="ghost">›</button><select class="filter" style="margin-left:auto"><option>Todos os mecânicos</option><option>João Ferreira</option></select></div><div class="agenda-row"><span class="time">08:30</span><div class="event"><b>Revisão de 60.000 km · João Santos</b><small>Toyota Corolla · Box 02 · João Ferreira</small></div><span class="status blue">Confirmado</span></div><div class="agenda-row"><span class="time">10:00</span><div class="event"><b>Troca de pastilhas · Mariana Oliveira</b><small>Honda Civic · Box 01 · Lucas Rocha</small></div><span class="status green">Cliente chegou</span></div><div class="agenda-row"><span class="time">14:30</span><div class="event"><b>Diagnóstico eletrônico · Carlos Almeida</b><small>VW T-Cross · Box 03 · João Ferreira</small></div><span class="status orange">Agendado</span></div><div class="agenda-row"><span class="time">16:00</span><div class="event"><b>Alinhamento · Paulo Mendes</b><small>Chevrolet Onix · Box 02 · Lucas Rocha</small></div><span class="status orange">Agendado</span></div></div></section>
+        <section class="view" id="budgets"><div class="page-head"><div><p class="eyebrow">COMERCIAL</p><h1>Orçamentos</h1><p class="sub">Acompanhe aprovações e converta propostas em OS.</p></div><button class="primary" data-new="budget">+ Novo orçamento</button></div><div class="panel"><table class="module-table"><thead><tr><th>Orçamento</th><th>Cliente / veículo</th><th>Validade</th><th>Total</th><th>Status</th><th></th></tr></thead><tbody><tr><td><b>#1048</b></td><td>Mariana Oliveira · Honda Civic</td><td>05 set 2026</td><td>R$ 1.860,00</td><td><span class="status orange">Aguardando aprovação</span></td><td><button class="link">Converter em OS</button></td></tr><tr><td><b>#1047</b></td><td>João Santos · Toyota Corolla</td><td>03 set 2026</td><td>R$ 3.240,00</td><td><span class="status green">Aprovado</span></td><td><button class="link">Abrir</button></td></tr></tbody></table></div></section>
+        <section class="view" id="finance"><div class="page-head"><div><p class="eyebrow">CONTROLE FINANCEIRO</p><h1>Financeiro</h1><p class="sub">Fluxo de caixa, contas e recebimentos.</p></div><button class="primary" data-new="expense">+ Lançar despesa</button></div><div class="kpis"><div class="kpi"><div class="kpi-top">Saldo em caixa</div><strong>R$ 31.450</strong><span class="trend">↑ 8,4% este mês</span></div><div class="kpi"><div class="kpi-top">A receber</div><strong>R$ 12.840</strong><span class="trend">8 títulos</span></div><div class="kpi"><div class="kpi-top">A pagar</div><strong>R$ 8.690</strong><span class="trend" style="color:var(--yellow)">5 títulos</span></div></div><div class="panel" style="margin-top:15px"><div class="panel-head"><div><h2>Contas recentes</h2><p>Entradas e saídas da operação</p></div></div><table class="module-table"><thead><tr><th>Descrição</th><th>Categoria</th><th>Vencimento</th><th>Valor</th><th>Status</th></tr></thead><tbody><tr><td>Recebimento OS #1042</td><td>Serviço</td><td>Hoje</td><td class="trend">+ R$ 890,00</td><td><span class="status green">Recebido</span></td></tr><tr><td>Auto Peças Brasil</td><td>Fornecedor</td><td>Hoje</td><td class="low">- R$ 2.480,00</td><td><span class="status red">Vence hoje</span></td></tr></tbody></table></div></section>
+        <section class="view" id="reports"><div class="page-head"><div><p class="eyebrow">INTELIGÊNCIA OPERACIONAL</p><h1>Relatórios</h1><p class="sub">Indicadores para decisões mais rápidas.</p></div><button class="ghost">Exportar PDF ↓</button></div><div class="layout"><div class="panel"><div class="panel-head"><div><h2>Serviços mais realizados</h2><p>Acumulado no período selecionado</p></div></div><div class="agenda-row"><span style="width:150px">Troca de óleo</span><span style="height:8px;background:var(--accent);width:63%;border-radius:3px"></span><b>68</b></div><div class="agenda-row"><span style="width:150px">Freios</span><span style="height:8px;background:var(--cyan);width:48%;border-radius:3px"></span><b>51</b></div><div class="agenda-row"><span style="width:150px">Revisão</span><span style="height:8px;background:var(--yellow);width:39%;border-radius:3px"></span><b>42</b></div><div class="agenda-row"><span style="width:150px">Suspensão</span><span style="height:8px;background:#9b7bd1;width:28%;border-radius:3px"></span><b>30</b></div></div><div class="panel"><div class="panel-head"><div><h2>Saúde da operação</h2><p>Metas de setembro</p></div></div><div class="alert-row"><span>Margem média</span><b class="trend">34,8%</b></div><div class="alert-row"><span>Ticket médio</span><b>R$ 684</b></div><div class="alert-row"><span>Retorno de clientes</span><b class="trend">72%</b></div></div></div></section>
+        <section class="view" id="customerRequests"><div class="page-head"><div><p class="eyebrow">ATENDIMENTO</p><h1>Pedidos de clientes</h1><p class="sub">Solicitações de agendamento enviadas pelo portal.</p></div></div><div class="panel"><div class="module-toolbar"><input class="filter" id="customerRequestSearch" placeholder="Buscar cliente, serviço ou veículo..." style="flex:1"></div><table class="module-table"><thead><tr><th>Cliente</th><th>Serviço</th><th>Veículo</th><th>Data</th><th>Horário</th><th>Status</th><th></th></tr></thead><tbody id="customerRequestRows"></tbody></table></div></section>
+    </main></div>
+</div>
+<div class="modal-bg" id="modalBg"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Novo cadastro</h2><button class="close" id="closeModal">×</button></div><form id="modalForm"><div class="form-grid" id="formFields"></div><div class="modal-foot"><button type="button" class="ghost" id="cancelModal">Cancelar</button><button class="primary" type="submit">Salvar cadastro</button></div></form></div></div><div class="modal-bg" id="profileModal" aria-hidden="true">
+    <section class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+        <div class="modal-head"><h2 id="profileTitle">Meu perfil</h2><button class="close" id="closeProfile" type="button" aria-label="Fechar">×</button></div>
+        <form id="profileForm">
+            <div class="profile-photo-row">
+                <span class="avatar" id="profilePreview"></span>
+                <div class="profile-photo-actions"><label>Foto do perfil<input id="profilePhoto" type="file" accept="image/*"></label><button class="ghost" id="removeProfilePhoto" type="button">Remover foto</button></div>
+            </div>
+            <div class="profile-grid">
+                <label class="wide">Nome completo<input name="name" autocomplete="name" required maxlength="100"></label>
+                <label class="wide">E-mail<input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+                <label class="wide">Telefone (opcional)<div class="phone-input-row" id="profilePhoneField"></div></label>
+                <label class="wide">Senha atual<input name="currentPassword" type="password" autocomplete="current-password"></label>
+                <label>Nova senha<input name="newPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128"></label>
+                <label>Confirmar nova senha<input name="confirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128"></label>
+            </div>
+            <p class="auth-note">Deixe os campos de senha vazios para manter sua senha atual. Uma nova senha deve ter ao menos 8 caracteres, com letras e números. Esta demonstração guarda os dados somente neste navegador.</p>
+            <p class="profile-error" id="profileError" role="alert"></p>
+            <div class="modal-foot"><button class="ghost" id="cancelProfile" type="button">Cancelar</button><button class="primary" type="submit">Salvar alterações</button></div>
+        </form>
+    </section>
+</div>
+<div class="toast" id="toast"></div>
+<div class="mekanik2-intro" id="mekanik2Intro" aria-hidden="true"><div class="mekanik2-intro-content"><img src="https://www.image2url.com/r2/default/images/1794593515520-425e7846-039a-48cd-8969-56716e043d1c.jpeg" alt="Mekanik - Sistema de gestão automotiva"><small>GESTÃO AUTOMOTIVA</small></div></div>
+<section class="auth-screen" id="authScreen" aria-label="Entrar no Mekanik">
+    <div class="auth-card">
+        <div class="auth-brand"><img class="brand-logo" src="https://www.image2url.com/r2/default/images/1794593515520-425e7846-039a-48cd-8969-56716e043d1c.jpeg" alt="Mekanik - Sistema de gestão automotiva"></div>
+        <p class="eyebrow">GESTÃO AUTOMOTIVA</p>
+        <h1 id="authTitle">Entre na sua conta</h1>
+        <p class="sub" id="authDescription">Acesse sua área de cliente ou administrador.</p>
+        <form id="authForm">
+            <label class="auth-field register-field">Nome completo<input name="name" autocomplete="name" maxlength="100"></label>
+            <label class="auth-field">E-mail<input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+            <label class="auth-field register-field">Telefone para contato<div class="phone-input-row" id="registerPhoneField"></div></label>
+            <label class="auth-field">Senha<input name="password" type="password" autocomplete="current-password" minlength="6" maxlength="128" required></label>
+            <p class="auth-field register-field field-validation-note">Validação de e-mail e telefone por país. A senha precisa ter ao menos 8 caracteres, com letras e números. A demonstração salva contas neste navegador e não verifica identidade.</p>
+            <label class="auth-field remember-field"><span><input type="checkbox" id="rememberAccount" checked> Manter minha conta conectada neste navegador</span></label>
+            <label class="auth-field register-field">Tipo de conta
+                <select name="role" id="registerRole"><option value="client">Cliente</option></select>
+            </label>
+            <button class="primary auth-submit" id="authSubmit" type="submit">Entrar</button>
+        </form>
+        <button class="auth-switch" id="authSwitch" type="button">Ainda não tem conta? Cadastre-se</button>
+        <button class="auth-google" id="googleLogin" type="button">G  Continuar com Google</button>
+        <button class="ghost auth-guest" id="guestContinue" type="button">Continuar como visitante</button>
+        <p class="auth-note" id="authNote">Protótipo local. Contas e pedidos ficam salvos somente neste navegador. O login Google exige configuração de serviço.</p>
+        <p class="auth-error" id="authError" role="alert"></p>
+    </div>
+</section>
+<main class="client-portal" id="clientPortal">
+    <header class="client-topbar"><div class="auth-brand"><img class="brand-logo" src="https://www.image2url.com/r2/default/images/1794593515520-425e7846-039a-48cd-8969-56716e043d1c.jpeg" alt="Mekanik - Sistema de gestão automotiva"></div><div class="client-header-controls"><button class="ghost guest-entry" id="guestLogin" type="button">Entrar / criar conta</button><span>Olá, <b id="clientName"></b> <button class="ghost logout-button" type="button">Sair</button></span></div></header>
+    <div class="client-content">
+        <section class="client-hero">
+            <p class="eyebrow">PEÇAS E SERVIÇOS, SEM COMPLICAÇÃO</p>
+            <h1>Encontre a peça certa. Compare com calma.</h1>
+            <p class="sub">Pesquise como visitante, informe o nome ou modelo da peça e peça cotações. Você só precisa entrar para enviar o pedido.</p>
+            <div class="client-hero-actions"><button class="primary" type="button" onclick="document.getElementById('marketplace').scrollIntoView({behavior:'smooth'})">Procurar uma peça <span aria-hidden="true">→</span></button><span class="local-demo-note">Você pode começar sem conta</span></div>
+        </section>
+        <section class="panel marketplace-panel" id="marketplace">
+            <div class="marketplace-heading"><div><h2>Buscar em empresas cadastradas</h2><p>Descreva a peça e, se quiser, envie uma foto. No protótipo, seu pedido fica salvo neste navegador; as respostas de várias empresas dependem de um banco compartilhado.</p></div><span class="demo-pill">Demonstração local</span></div>
+            <form class="marketplace-form" id="partSearchForm">
+                <label>Nome da peça<input name="partName" placeholder="Ex.: pastilha de freio" required maxlength="100"></label>
+                <label>Marca e modelo do veículo<input name="vehicleModel" placeholder="Ex.: Honda Civic 2018" required maxlength="100"></label>
+                <label class="wide">Foto da peça (opcional)<input name="photo" id="partPhoto" type="file" accept="image/*"><img class="part-photo-preview" id="partPhotoPreview" alt="Prévia da peça escolhida"></label>
+                <p class="marketplace-help wide">Para proteger seu espaço, a imagem é reduzida antes de ser guardada neste navegador. Não envie documentos ou dados pessoais na foto.</p>
+                <button class="primary wide" type="submit">Pedir cotações</button>
+            </form>
+            <div id="partRequestFeedback" class="local-db-notice" role="status">Sem login: você pode pesquisar e preencher o pedido. O login será solicitado somente ao enviar.</div>
+            <div class="part-requests" id="partRequests" aria-live="polite"></div>
+        </section>
+        <p class="eyebrow" style="margin-top:38px">ÁREA DO CLIENTE</p><h1>Seus serviços e agendamentos</h1><p class="sub">Escolha o serviço e peça um horário. A oficina confirmará seu pedido.</p>
+        <h2 class="client-section-title">Serviços disponíveis</h2><div class="service-cards" id="serviceCards"></div>
+        <section class="panel booking-panel"><h2>Agendar um serviço</h2><form id="bookingForm" class="booking-form">
+            <label>Serviço<select name="service" id="clientService" required></select></label>
+            <label>Veículo<input name="vehicle" placeholder="Ex.: Honda Civic, placa ABC1D23" required maxlength="100"></label>
+            <label>Data desejada<input name="date" type="date" id="bookingDate" required></label>
+            <label>Horário desejado<input name="time" type="time" required></label>
+            <button class="primary" type="submit">Solicitar agendamento</button>
+        </form></section>
+        <section class="panel my-bookings"><h2>Meus pedidos</h2><div id="myBookings"></div></section>
+    </div>
+</main>
+
+
+
+
+
+
+
+    <script src="app.js" defer></script>
+</body>
+</html>
