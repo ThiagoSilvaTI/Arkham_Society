@@ -104,3 +104,20 @@ test('serves the organized frontend from the Node server', async t => {
     assert.match(response.headers.get('content-type'), /text\/html/);
     assert.match(await response.text(), /styles\.css/);
 });
+
+test('accepts a deployment password and hashes it before use', async t => {
+    const app = createServer({
+        adminEmail: 'admin@example.com',
+        adminPassword: 'deployment-password',
+        dbPath: ':memory:'
+    });
+    await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+    t.after(() => new Promise(resolve => app.close(resolve)));
+
+    const response = await fetch(`http://127.0.0.1:${app.address().port}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'admin@example.com', password: 'deployment-password' })
+    });
+    assert.equal(response.status, 200);
+});

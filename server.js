@@ -111,9 +111,11 @@ function validateWorkshopState(state) {
 
 function createServer(options = {}) {
     const adminEmail = String(options.adminEmail || '').trim().toLowerCase();
-    const adminPasswordHash = String(options.adminPasswordHash || '');
+    const adminPasswordHash = String(options.adminPasswordHash || (
+        options.adminPassword ? hashPassword(String(options.adminPassword)) : ''
+    ));
     if (!adminEmail || !isPasswordHash(adminPasswordHash)) {
-        throw new Error('Configure ADMIN_EMAIL e um ADMIN_PASSWORD_HASH scrypt válido no arquivo .env.');
+        throw new Error('Configure ADMIN_EMAIL e ADMIN_PASSWORD ou ADMIN_PASSWORD_HASH nas variáveis de ambiente do serviço.');
     }
 
     const dbPath = options.dbPath || path.join(ROOT, 'data', 'mekanik.sqlite');
@@ -334,7 +336,9 @@ function createServer(options = {}) {
 
 if (require.main === module) {
     loadEnvironment();
-    const passwordHash = process.env.ADMIN_PASSWORD_HASH || '';
+    const passwordHash = process.env.ADMIN_PASSWORD_HASH || (
+        process.env.ADMIN_PASSWORD ? hashPassword(process.env.ADMIN_PASSWORD) : ''
+    );
     const app = createServer({
         adminEmail: process.env.ADMIN_EMAIL,
         adminPasswordHash: passwordHash,
@@ -343,7 +347,7 @@ if (require.main === module) {
             : path.join(ROOT, 'data', 'mekanik.sqlite')
     });
     const port = Number(process.env.PORT) || 3000;
-    const host = process.env.HOST || '127.0.0.1';
+    const host = process.env.HOST || (process.env.RENDER ? '0.0.0.0' : '127.0.0.1');
     app.listen(port, host, () => console.log(`Mekanik disponível em http://${host}:${port}`));
 }
 
