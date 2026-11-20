@@ -1,8 +1,8 @@
 {
-  "name": "mekanik-workshop",
+  "name": "arkham-systems",
   "version": "1.0.0",
   "private": true,
-  "description": "Sistema de gestão automotiva Mekanik",
+  "description": "Plataforma SaaS de gestão empresarial Arkham Systems",
   "engines": {
     "node": ">=22.13.0"
   },

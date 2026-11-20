@@ -1,29 +1,33 @@
-# Mekanik
+# Arkham Systems
 
-Sistema de gestão automotiva com interface HTML/CSS/JavaScript, servidor Node.js e banco SQLite.
+Plataforma SaaS de gestão empresarial com contas por empresa, cadastro de clientes e acompanhamento de receitas e despesas.
 
 ## Requisitos
 
 - Node.js 22.13 ou mais recente (usa o módulo SQLite integrado ao Node).
 
-## Configuração
-
-1. Copie `.env.example` para `.env`.
-2. Preencha `ADMIN_EMAIL` e `ADMIN_PASSWORD` (ou `ADMIN_PASSWORD_HASH`, no formato scrypt `scrypt$salt$hash`).
-3. Inicie o servidor com `npm start` e abra `http://127.0.0.1:3000`.
-
-O arquivo `.env` é apenas para desenvolvimento local e não é enviado ao Render. Para publicar no Render, abra o serviço em **Dashboard → Environment** e configure:
-
-- `ADMIN_EMAIL`: `mrthiagosilva1@gmail.com`
-- `ADMIN_PASSWORD`: a senha desejada, ou `ADMIN_PASSWORD_HASH` com um hash scrypt
-- `HOST`: `0.0.0.0` (necessário para receber tráfego externo)
-
-Depois salve as variáveis e faça um novo deploy. Não coloque a senha padrão no código ou em arquivos versionados.
-
-Para gerar um hash scrypt localmente sem salvá-lo no código, execute no PowerShell:
+## Executar localmente
 
 ```powershell
-node -e "const c=require('node:crypto');const p=require('node:readline/promises').createInterface({input:process.stdin,output:process.stdout});p.question('Senha: ').then(s=>{const salt=c.randomBytes(16).toString('hex');console.log('scrypt$'+salt+'$'+c.scryptSync(s,salt,64).toString('hex'));p.close()})"
+npm start
 ```
 
-O banco é criado em `data/mekanik.sqlite`. Cadastros da oficina são armazenados nele; sessões administrativas usam cookie HTTP-only. As contas de clientes e pedidos do portal existentes continuam neste navegador.
+Abra `http://127.0.0.1:3000`, crie um espaço de trabalho para a empresa e cadastre clientes e movimentações financeiras.
+
+## Persistência e isolamento
+
+O SQLite é criado em `data/arkham.sqlite` por padrão. Defina `ARKHAM_DATABASE_PATH` para escolher outro caminho. Cada conta cria uma empresa; o identificador dessa empresa vem da sessão autenticada e é aplicado pelo servidor em todas as consultas e gravações do espaço de trabalho. As chaves dos registros também incluem o identificador da empresa, permitindo que empresas diferentes usem identificadores iguais sem compartilhar dados.
+
+As senhas são armazenadas com scrypt. As sessões usam cookies `HttpOnly` e `SameSite=Strict`, com o atributo `Secure` em produção. As sessões atuais são mantidas em memória e expiram após oito horas; reiniciar o processo encerra as sessões ativas.
+
+## Testes
+
+```powershell
+npm test
+```
+
+## Preparação para produção
+
+Esta versão é a base funcional do produto, não uma implantação SaaS pronta para tráfego público. Antes de disponibilizar dados reais, configure HTTPS e `NODE_ENV=production`, proteja e faça backup do banco, use armazenamento compartilhado de sessões e limite de tentativas distribuído em implantações com mais de uma instância. Convites e permissões para equipes, recuperação de senha, verificação de e-mail e política de retenção ainda precisam ser implementados.
+
+O banco legado `data/mekanik.sqlite`, se existir, não é migrado nem alterado por esta versão. A configuração legada `DATABASE_PATH` não é usada; configure `ARKHAM_DATABASE_PATH` para apontar o novo produto a um banco separado.
